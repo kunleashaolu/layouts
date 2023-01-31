@@ -2,5 +2,11 @@
 
 body {
   min-height: 100vh;
-  background-color: black;
+  background-color: #e8e8e8;
+  font-family: 'Crimson Pro', serif;
+}
+
+main {
+  display: grid;
+  margin: 1em;
 }
