@@ -13,6 +13,7 @@ main {
 
 img {
   grid-row: 1 / 2;
+  height: 70vh;
 }
 
 h1 {
