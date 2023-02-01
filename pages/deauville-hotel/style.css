@@ -1,12 +1,21 @@
 @import url('../../reset.css');
 
 body {
-  min-height: 100vh;
   background-color: #e8e8e8;
   font-family: 'Crimson Pro', serif;
 }
 
 main {
   display: grid;
-  margin: 1em;
+  padding: 1em;
+  grid-template-rows: 70vh max-content min-content;
+}
+
+img {
+  grid-row: 1 / 2;
+}
+
+h1 {
+  font-size: 8em;
+  color: #e14e22;
 }
