@@ -30,10 +30,10 @@ h1 {
 
 footer {
   grid-row: 3/4;
+  margin-top: 4em;
   display: flex;
   justify-content: space-between;
   align-self: end;
-  margin-top: 4em;
   align-items: center;
 }
 
