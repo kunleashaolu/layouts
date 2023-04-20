@@ -1,0 +1,59 @@
+@import url('../../reset.css');
+
+body {
+  background-color: #e8e8e8;
+  font-family: 'Crimson Pro', serif;
+  font-size: 1rem;
+}
+
+main {
+  max-width: 1240px;
+  min-height: 95vh;
+  padding: 1em;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header p:first-of-type {
+  text-align: center;
+}
+
+header p:last-of-type {
+  text-align: right;
+}
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin-top: 3em;
+}
+
+article img {
+  width: min(100vw, 650px);
+  height: 100%;
+}
+
+article .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2em;
+  width: min(100vw, 400px);
+}
+
+h2 {
+  font-size: clamp(1.3rem, 1.3rem + 5vw, 5rem);
+  font-weight: 200;
+  color: #1d1d1d;
+  line-height: 0.8;
+}
+
+.content p {
+  line-height: 1.3;
+}
