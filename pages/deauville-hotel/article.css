@@ -35,25 +35,28 @@ article {
 }
 
 article img {
-  width: min(100vw, 650px);
+  width: min(100%, 650px);
   height: 100%;
+  flex-grow: 1;
 }
 
 article .content {
+  width: min(100%, 450px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 2em;
-  width: min(100vw, 400px);
+  flex-grow: 1;
 }
 
 h2 {
-  font-size: clamp(1.3rem, 1.3rem + 5vw, 5rem);
+  font-size: clamp(1.3rem, 1.3rem + 5vw, 6rem);
   font-weight: 200;
   color: #1d1d1d;
-  line-height: 0.8;
+  line-height: 1;
 }
 
 .content p {
   line-height: 1.3;
+  font-size: clamp(0.8rem, 0.8rem + 0.5vw, 1.3rem);
 }
