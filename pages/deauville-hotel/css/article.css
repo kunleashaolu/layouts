@@ -19,12 +19,14 @@ header {
   align-items: center;
 }
 
-header p:first-of-type {
-  text-align: center;
-}
+header p {
+  &:first-of-type {
+    text-align: center;
+  }
 
-header p:last-of-type {
-  text-align: right;
+  &:last-of-type {
+    text-align: right;
+  }
 }
 
 article {
@@ -32,20 +34,20 @@ article {
   flex-wrap: wrap;
   gap: 2em;
   margin-top: 3em;
+
+  .content {
+    width: min(100%, 450px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2em;
+    flex-grow: 1;
+  }
 }
 
 article img {
   width: min(100%, 650px);
   height: 100%;
-  flex-grow: 1;
-}
-
-article .content {
-  width: min(100%, 450px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2em;
   flex-grow: 1;
 }
 
