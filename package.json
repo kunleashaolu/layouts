@@ -1,8 +1,17 @@
 {
   "name": "layouts",
-  "version": "1.0.0",
+  "private": true,
+  "version": "0.0.1",
   "description": "collection of web experiments",
-  "main": "index.html",
   "author": "Adekunle Ashaolu",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.1.4"
+  }
 }
