@@ -1,0 +1,52 @@
+@import url('../../../reset.css');
+
+@property --hue {
+  syntax: '<angle>';
+  initial-value: 0turn;
+  inherits: false;
+}
+
+@keyframes hue-cycle {
+  to {
+    --hue: 1turn;
+  }
+}
+
+body {
+  display: grid;
+  row-gap: 1em;
+  place-content: center;
+  padding-block: 4rem;
+  padding-inline: 2rem;
+  font-family: system-ui;
+
+  background-color: oklch(40% 50% var(--hue));
+}
+
+body,
+h1,
+h2,
+h3,
+p,
+a {
+  animation: hue-cycle 1s linear both;
+  animation-timeline: scroll();
+}
+
+h1,
+h2,
+h3 {
+  color: oklch(98% 40% var(--hue));
+  max-inline-size: 30ch;
+}
+
+p {
+  color: oklch(90% 25% var(--hue));
+  max-inline-size: 60ch;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+a {
+  color: oklch(94% 35% var(--hue));
+}
