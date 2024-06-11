@@ -1,6 +1,1 @@
-@import url('../../reset.css');
-
-body {
-  height: 100svh;
-  background: blue;
-}
+@import url('../../../reset.css');

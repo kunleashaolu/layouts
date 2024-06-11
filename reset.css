@@ -16,7 +16,6 @@ html:focus-within {
 }
 
 body {
-  min-height: 100svh;
   text-rendering: optimizeSpeed;
 }
 
