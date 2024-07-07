@@ -6,5 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./css/style.css" />
   </head>
-  <body></body>
+  <body id="container">
+    <nav id="navbar" class="scroll-up">
+      <h3>Logo</h3>
+      <ul>
+        <li>Link 1</li>
+        <li>Link 2</li>
+        <li>Link 3</li>
+        <li>Link 4</li>
+        <li>Link 5</li>
+      </ul>
+    </nav>
+    <script>
+      const navbar = document.getElementById('navbar')
+
+      let previousScrollPosition = 0
+
+      const isScrollingDown = () => {
+        let currentScrolledPosition = window.scrollY || window.pageYOffset
+        let scrollingDown
+
+        if (currentScrolledPosition > previousScrollPosition) {
+          scrollingDown = true
+        } else {
+          scrollingDown = false
+        }
+        previousScrollPosition = currentScrolledPosition
+        return scrollingDown
+      }
+
+      const handleNavScroll = () => {
+        if (isScrollingDown()) {
+          navbar.classList.add('scroll-down')
+          navbar.classList.remove('scroll-up')
+        } else {
+          navbar.classList.add('scroll-up')
+          navbar.classList.remove('scroll-down')
+        }
+      }
+
+      var throttleWait
+
+      const throttle = (callback, time) => {
+        // if the variable is true, don't run the function
+        if (throttleWait) return
+
+        // set the wait variable to true to pause the function
+        throttleWait = true
+
+        // use setTimeout to run the function within the specified time
+        setTimeout(() => {
+          callback()
+
+          // set throttleWait to false once the timer is up to restart the throttle function
+          throttleWait = false
+        }, time)
+      }
+
+      window.addEventListener('scroll', () => throttle(handleNavScroll, 250))
+    </script>
+  </body>
 </html>
