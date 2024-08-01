@@ -1,0 +1,32 @@
+@import url('../../../reset.css');
+
+body {
+  height: 400vh;
+  background-color: #3f51b5;
+  font-size: 1.3em;
+  position: relative;
+}
+
+nav {
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  background-color: #fefefe;
+  color: #000000;
+  transition: top 400ms ease-in-out;
+
+  ul {
+    display: flex;
+    gap: 0.5em;
+    list-style: none;
+  }
+}
+
+.scroll-up {
+  top: 0;
+}
+
+.scroll-down {
+  top: -100%;
+}
