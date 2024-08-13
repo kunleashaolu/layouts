@@ -1,0 +1,22 @@
+@import url(../../reset.css);
+
+body {
+  height: 100svh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(0, 0%, 100%);
+  font-size: 1.25rem;
+}
+
+/* input {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 0;
+} */
+
+.menu {
+  background-color: bisque;
+  display: grid;
+}

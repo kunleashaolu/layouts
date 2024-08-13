@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Context Menu</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="menu" id="menu">
+      <label><input type="radio" name="menu-option" value="create new" /> Create New</label>
+      <label><input type="radio" name="menu-option" value="delete" /> Delete</label>
+      <label><input type="radio" name="menu-option" value="copy" /> Copy</label>
+      <label><input type="radio" name="menu-option" value="paste" /> Paste</label>
+    </div>
+    <script>
+      const menu = document.getElementById('menu')
+
+      menu.addEventListener('change', (e) => console.log(e.target.value))
+    </script>
+  </body>
+</html>
