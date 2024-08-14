@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="wrapper">
-      <div class="selection" id="menu-selection">Heading 1</div>
-      <div class="menu" id="menu">
+    <div class="wrapper" id="menu-container">
+      <button class="selection" id="menu-selection">Heading 1</button>
+      <div class="menu" id="menu-options">
         <label><input type="radio" name="menu-option" value="Heading 1" />Heading 1</label>
         <label><input type="radio" name="menu-option" value="Heading 2" />Heading 2</label>
         <label><input type="radio" name="menu-option" value="Heading 3" />Heading 3</label>
@@ -18,12 +18,17 @@
       </div>
     </div>
     <script>
-      const menu = document.getElementById('menu')
+      const menuOptions = document.getElementById('menu-options')
       const selection = document.getElementById('menu-selection')
-      menu.addEventListener('change', (e) => console.log(e.target.value))
+      const menu = document.getElementById('menu-container')
 
-      selection.addEventListener('click', () => {
-        menu.classList.add('active')
+      menuOptions.addEventListener('change', (e) => {
+        selection.innerHTML = e.target.value
+        menu.removeAttribute('open')
+      })
+
+      selection.addEventListener('focus', () => {
+        menu.setAttribute('open', '')
       })
     </script>
   </body>
