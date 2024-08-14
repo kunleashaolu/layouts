@@ -2,21 +2,57 @@
 
 body {
   height: 100svh;
-  display: grid;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  background-color: hsl(0, 0%, 100%);
-  font-size: 1.25rem;
+  background-color: #f8f9fa;
+  font-size: 1rem;
 }
 
-/* input {
+.wrapper {
+  margin-top: 40vh;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.menu {
+  --shadow-strength: 10%;
+  --shadow-color: 220 40% 2%;
+
+  overflow: hidden;
+  background-color: #f1f3f5;
+  display: none;
+  border-radius: 4px;
+  box-shadow: 0 -1px 3px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)),
+    0 1px 2px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)),
+    0 2px 5px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)),
+    0 4px 12px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)),
+    0 12px 15px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%));
+}
+
+.active {
+  display: grid;
+}
+
+label {
+  cursor: pointer;
+  padding: 0.4em 0.8em;
+
+  &:hover {
+    background-color: #ced4da;
+  }
+}
+
+.selection {
+  padding: 0.4em 0.8em;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input {
   width: 0px;
   height: 0px;
   position: absolute;
   top: 0;
-} */
-
-.menu {
-  background-color: bisque;
-  display: grid;
 }

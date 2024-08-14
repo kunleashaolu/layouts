@@ -8,15 +8,23 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="menu" id="menu">
-      <label><input type="radio" name="menu-option" value="create new" /> Create New</label>
-      <label><input type="radio" name="menu-option" value="delete" /> Delete</label>
-      <label><input type="radio" name="menu-option" value="copy" /> Copy</label>
-      <label><input type="radio" name="menu-option" value="paste" /> Paste</label>
+    <div class="wrapper">
+      <div class="selection" id="menu-selection">Heading 1</div>
+      <div class="menu" id="menu">
+        <label><input type="radio" name="menu-option" value="Heading 1" />Heading 1</label>
+        <label><input type="radio" name="menu-option" value="Heading 2" />Heading 2</label>
+        <label><input type="radio" name="menu-option" value="Heading 3" />Heading 3</label>
+        <label><input type="radio" name="menu-option" value="Paragragh" />Paragraph</label>
+      </div>
     </div>
     <script>
       const menu = document.getElementById('menu')
+      const selection = document.getElementById('menu-selection')
       menu.addEventListener('change', (e) => console.log(e.target.value))
+
+      selection.addEventListener('click', () => {
+        menu.classList.add('active')
+      })
     </script>
   </body>
 </html>
