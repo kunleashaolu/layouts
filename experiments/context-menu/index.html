@@ -24,7 +24,7 @@
       const menu = document.getElementById('menu-container')
       const menuOverlay = document.getElementById('menu-overlay')
 
-      menuOptions.addEventListener('change', (e) => {
+      menuOptions.addEventListener('click', (e) => {
         selection.innerHTML = e.target.value
         menu.removeAttribute('open')
       })
