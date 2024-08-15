@@ -16,11 +16,13 @@
         <label><input type="radio" name="menu-option" value="Heading 3" />Heading 3</label>
         <label><input type="radio" name="menu-option" value="Paragragh" />Paragraph</label>
       </div>
+      <div class="overlay" id="menu-overlay"></div>
     </div>
     <script>
       const menuOptions = document.getElementById('menu-options')
       const selection = document.getElementById('menu-selection')
       const menu = document.getElementById('menu-container')
+      const menuOverlay = document.getElementById('menu-overlay')
 
       menuOptions.addEventListener('change', (e) => {
         selection.innerHTML = e.target.value
@@ -29,6 +31,10 @@
 
       selection.addEventListener('focus', () => {
         menu.setAttribute('open', '')
+      })
+
+      menuOverlay.addEventListener('click', () => {
+        menu.removeAttribute('open')
       })
     </script>
   </body>
