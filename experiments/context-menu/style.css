@@ -58,12 +58,11 @@ label {
 .wrapper[open] > .overlay {
   display: block;
   position: fixed;
-  opacity: 0.4;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rebeccapurple;
+  background-color: transparent;
   z-index: 100;
 }
 
