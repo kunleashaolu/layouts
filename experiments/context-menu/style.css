@@ -1,23 +1,26 @@
 @import url(../../reset.css);
 
+:root {
+  --shadow-strength: 10%;
+  --shadow-color: 220 40% 2%;
+}
+
 body {
-  height: 100vh;
   position: relative;
   background-color: #f8f9fa;
+  min-height: 100svh;
 }
 
 .wrapper {
-  margin: auto;
-  margin-top: 40vh;
+  position: absolute;
+  top: 0;
+  left: 0;
   display: grid;
   width: fit-content;
   gap: 0.5rem;
 }
 
 .menu {
-  --shadow-strength: 10%;
-  --shadow-color: 220 40% 2%;
-
   overflow: hidden;
   background-color: #f1f3f5;
   display: none;
@@ -47,7 +50,7 @@ label {
   cursor: pointer;
 
   &:focus {
-    outline: 2px solid red;
+    outline: 2px solid #a797e4;
   }
 }
 
@@ -71,4 +74,21 @@ input {
   height: 0px;
   position: absolute;
   top: 0;
+}
+
+.context-menu {
+  display: none;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #f1f3f5;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  z-index: 300;
+
+  box-shadow: 0 -1px 3px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)),
+    0 1px 2px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)),
+    0 2px 5px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)),
+    0 4px 12px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)),
+    0 12px 15px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%));
 }
