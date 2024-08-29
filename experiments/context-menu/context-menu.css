@@ -1,0 +1,55 @@
+@import url(../../reset.css);
+
+:root {
+  --shadow-strength: 10%;
+  --shadow-color: 220 40% 2%;
+}
+
+body {
+  position: relative;
+  background-color: #f8f9fa;
+  min-height: 100svh;
+}
+
+input {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  top: 0;
+}
+
+label {
+  cursor: pointer;
+  padding: 0.4em 0.8em;
+
+  &:hover {
+    background-color: #ced4da;
+  }
+}
+
+.context-menu-wrapper {
+  --display: none;
+  --top: 0;
+  --left: 0;
+
+  display: var(--display);
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  z-index: 300;
+  transform-origin: top left;
+  transition: transform 200ms ease-in-out;
+}
+
+.context-menu {
+  display: grid;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #f1f3f5;
+
+  box-shadow: 0 -1px 3px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)),
+    0 1px 2px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)),
+    0 2px 5px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)),
+    0 4px 12px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)),
+    0 12px 15px -5px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 7%));
+}

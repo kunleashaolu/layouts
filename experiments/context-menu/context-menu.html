@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Context Menu</title>
+    <link rel="stylesheet" href="./context-menu.css" />
+  </head>
+  <body>
+    <div class="context-menu-wrapper" id="context-menu">
+      <div class="context-menu">
+        <label><input type="radio" name="context-menu-option" value="copy" />Copy</label>
+        <label><input type="radio" name="context-menu-option" value="paste" />Paste</label>
+        <label><input type="radio" name="context-menu-option" value="cut" />Cut</label>
+        <label><input type="radio" name="context-menu-option" value="create new" />Create New</label>
+        <label><input type="radio" name="context-menu-option" value="delete" />Delete</label>
+      </div>
+    </div>
+    <script>
+      const body = document.querySelector('body')
+      const context_menu = document.getElementById('context-menu')
+
+      function normalizePosition(mouseX, mouseY) {
+        const { left: bodyOffsetX, top: bodyOffsetY } = body.getBoundingClientRect()
+
+        const offsetX = mouseX - bodyOffsetX
+        const offsetY = mouseY - bodyOffsetY
+
+        const outOfBoundsOnX = offsetX + context_menu.clientWidth > body.clientWidth
+        const outOfBoundsOnY = offsetY + context_menu.clientHeight > body.clientHeight
+
+        let normalizeX = mouseX
+        let normalizeY = mouseY
+
+        if (outOfBoundsOnX) {
+          normalizeX = offsetX + body.clientWidth - context_menu.clientWidth
+        }
+
+        if (outOfBoundsOnY) {
+          normalizeY = offsetY + body.clientHeight - context_menu.clientHeight
+        }
+
+        return { normalizeX, normalizeY }
+      }
+
+      body.addEventListener('contextmenu', (event) => {
+        event.preventDefault()
+
+        const { clientX: xPosition, clientY: yPosition } = event
+        const { normalizeX, normalizeY } = normalizePosition(xPosition, yPosition)
+
+        context_menu.style.setProperty('--display', 'block')
+        context_menu.style.setProperty('--top', `${normalizeY}px`)
+        context_menu.style.setProperty('--left', `${normalizeX}px`)
+      })
+
+      body.addEventListener('click', (e) => {
+        if (e.target.offsetParent != context_menu) {
+          context_menu.style.setProperty('--display', 'none')
+        }
+      })
+    </script>
+  </body>
+</html>
