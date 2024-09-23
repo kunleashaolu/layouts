@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import '../../../reset.css';
+
+:root {
+  --colors-gray-1: hsl(0 0% 8.5%);
+  --colors-gray-2: hsl(0 0% 11%);
+  --colors-gray-3: hsl(0 0% 13.6%);
+  --colors-gray-4: hsl(0 0% 15.8%);
+  --colors-gray-5: hsl(0 0% 17.9%);
+  --colors-gray-6: hsl(0 0% 20.5%);
+  --colors-gray-7: hsl(0 0% 31.2%);
+  --colors-gray-8: hsl(0 0% 49.4%);
+}
+
+input {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+body {
+  display: grid;
+  height: 100svh;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--colors-gray-1);
+  font-family: 'Lato', sans-serif;
+}
+
+.picker-container {
+  --container-height: 180px;
+  container-name: picker-container;
+  container-type: inline-size;
+  height: var(--container-height);
+  overflow: hidden;
+  border-radius: 12px;
+  width: min(80vw, 320px);
+  background-color: var(--colors-gray-2);
+  border: 1px solid var(--colors-gray-4);
+}
+
+.wrapper {
+  container-name: wrapper;
+  container-type: inline-size;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: var(--container-height);
+
+  .wrapper-hour,
+  .wrapper-minute,
+  .wrapper-period {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: scroll;
+    scroll-padding-block: 2em;
+    height: var(--container-height);
+
+    scrollbar-width: 0;
+  }
+}
+
+.hour,
+.minute,
+.period {
+  font-weight: 700;
+  position: relative;
+  color: var(--colors-gray-7);
+  height: 45px;
+  font-size: 1.5rem;
+  padding-inline: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:last-of-type {
+    margin-bottom: 3rem;
+  }
+
+  &:first-of-type {
+    margin-top: 3rem;
+  }
+}
