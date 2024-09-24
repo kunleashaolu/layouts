@@ -37,33 +37,76 @@ body {
   height: var(--container-height);
   overflow: hidden;
   border-radius: 12px;
-  width: min(80vw, 320px);
+  width: min(80vw, 260px);
   background-color: var(--colors-gray-2);
   border: 1px solid var(--colors-gray-4);
 }
 
 .wrapper {
-  container-name: wrapper;
-  container-type: inline-size;
+  position: relative;
+
+  .overlay-top {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 35%;
+    background-color: var(--colors-gray-2);
+    backdrop-filter: blur(0.7px);
+  }
+
+  .overlay-bottom {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    width: 100%;
+    height: 35%;
+    background-color: var(--colors-gray-2);
+    backdrop-filter: blur(0.7px);
+  }
+}
+
+.container {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr max-content 1fr 1fr;
+  height: var(--container-height);
+  position: relative;
+
+  .overlay-focus {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    opacity: 0.7;
+    background-color: var(--colors-gray-4);
+    backdrop-filter: blur(0.7px);
+    align-self: center;
+    justify-self: center;
+  }
+
+  .separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--colors-gray-8);
+    font-size: 3rem;
+    font-weight: 700;
+  }
+}
+
+.wrapper-hour,
+.wrapper-minute,
+.wrapper-period {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  overflow-y: scroll;
+  scroll-padding-block: 2em;
   height: var(--container-height);
 
-  .wrapper-hour,
-  .wrapper-minute,
-  .wrapper-period {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    overflow-y: scroll;
-    scroll-padding-block: 2em;
-    height: var(--container-height);
-
-    &::-webkit-scrollbar {
-      width: 0px;
-    }
+  &::-webkit-scrollbar {
+    width: 0px;
   }
 }
 
@@ -74,17 +117,9 @@ body {
   position: relative;
   color: var(--colors-gray-7);
   height: 45px;
-  font-size: 1.5rem;
-  padding-inline: 1rem;
+  font-size: 2rem;
+  padding-inline: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &:last-of-type {
-    margin-bottom: 3rem;
-  }
-
-  &:first-of-type {
-    margin-top: 3rem;
-  }
 }
