@@ -61,7 +61,9 @@ body {
     scroll-padding-block: 2em;
     height: var(--container-height);
 
-    scrollbar-width: 0;
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
   }
 }
 
