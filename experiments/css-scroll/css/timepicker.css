@@ -38,7 +38,7 @@ body {
   height: var(--container-height);
   overflow: hidden;
   border-radius: 12px;
-  width: min(80vw, 260px);
+  width: min(80vw, 240px);
   background-color: var(--colors-gray-2);
   border: 1px solid var(--colors-gray-4);
 }
@@ -100,7 +100,8 @@ body {
   position: relative;
   overflow: hidden;
   overflow-y: scroll;
-  scroll-padding-block: 2em;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
     width: 0px;
@@ -108,10 +109,17 @@ body {
 }
 
 .seperator {
-  font-weight: 700;
-  color: var(--colors-gray-7);
-  font-size: 2.3rem;
-  padding-inline: 0.8rem;
+  display: flex;
+  align-items: center;
+
+  span {
+    height: var(--height);
+    font-weight: 700;
+    color: var(--colors-gray-7);
+    font-size: 2.3rem;
+    padding-inline: 0.8rem;
+    padding-block: 4px;
+  }
 }
 
 .hour,
@@ -125,4 +133,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  scroll-snap-align: center;
+
+  &:last-of-type {
+    margin-bottom: 4px;
+  }
+
+  &:first-of-type {
+    margin-top: 4px;
+  }
+}
+
+.period {
+  &:last-of-type {
+    margin-bottom: 3.5px;
+  }
+
+  &:first-of-type {
+    margin-top: 3.5px;
+  }
 }
