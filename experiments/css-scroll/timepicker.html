@@ -15,7 +15,7 @@
         <div class="container">
           <div class="selected-highlight"></div>
           <div class="wrapper">
-            <div id="hour" class="wrapper-hour">
+            <div style="--d: 1; --r: -10" id="hour" class="wrapper-hour">
               <label style="--idx: 0" for="hour" class="hour" id="hour_component">
                 <span>12</span>
                 <input type="radio" name="hour" value="12" />
@@ -68,10 +68,6 @@
                 <span>12</span>
                 <input type="radio" name="hour" value="12" />
               </label>
-              <label style="--idx: 12" for="hour" class="hour" id="hour_component">
-                <span>12</span>
-                <input type="radio" name="hour" value="12" />
-              </label>
               <label style="--idx: 13" for="hour" class="hour" id="hour_component">
                 <span>1</span>
                 <input type="radio" name="hour" value="1" />
@@ -116,13 +112,9 @@
                 <span>11</span>
                 <input type="radio" name="hour" value="11" />
               </label>
-              <label style="--idx: 24" for="hour" class="hour" id="hour_component">
-                <span>12</span>
-                <input type="radio" name="hour" value="12" />
-              </label>
             </div>
             <div class="seperator"><span>:</span></div>
-            <div id="minute" class="wrapper-minute">
+            <div style="--d: 1; --r: -10" id="minute" class="wrapper-minute">
               <label style="--idx: 0" for="minute" class="minute" id="minute_component">
                 <span>00</span>
                 <input type="radio" name="minute" value="00" />
@@ -332,7 +324,7 @@
                 <input type="radio" name="minute" value="60" />
               </label>
             </div>
-            <div id="period" class="wrapper-period">
+            <div style="--d: 1; --r: -10" id="period" class="wrapper-period">
               <label for="period" class="period">
                 <span></span>
                 <input type="radio" name="period" />
@@ -343,7 +335,7 @@
               </label>
               <label for="period" class="period">
                 <span>PM</span>
-                <input type="radio" name="period" value="AM" />
+                <input type="radio" name="period" value="PM" />
               </label>
               <label for="period" class="period">
                 <span></span>
@@ -356,8 +348,20 @@
     </div>
     <script>
       const wrapper_hour = document.getElementById('hour')
+      const wrapper_minute = document.getElementById('minute')
+      const wrapper_period = document.getElementById('period')
 
-      wrapper_hour.addEventListener('scroll', (e) => console.log(e))
+      wrapper_hour.addEventListener('scrollsnapchange', (e) => {
+        console.info(e.snapTargetBlock.querySelector(':scope > input').value)
+      })
+
+      wrapper_minute.addEventListener('scrollsnapchange', (e) => {
+        console.info(e.snapTargetBlock.querySelector(':scope > input').value)
+      })
+
+      wrapper_period.addEventListener('scrollsnapchange', (e) => {
+        console.info(e.snapTargetBlock.querySelector(':scope > input').value)
+      })
     </script>
   </body>
 </html>
